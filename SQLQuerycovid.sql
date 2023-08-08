@@ -17,7 +17,7 @@ from projectportfolio..CovidDeaths$
 where location like '%germany%' and continent is not null
 order by 1,2
 
--- total cases vs the population to show the total percentage of population who has got covid
+-- total cases vs the population to show the total percentage of population who has contracted covid
 
 select location, date,population, total_cases, (total_cases/population)*100 as percentage_infection_per_population
 from projectportfolio..CovidDeaths$
@@ -32,7 +32,7 @@ where continent is not null
 group by population, location
 order by percentage_infection_per_population desc
 
--- to see the countries with the highest date rates from covid infections per population
+-- to see the countries with the highest death rates from covid infections per population
 
 select location, MAX(cast(total_deaths as int)) as total_death_count
 from projectportfolio..CovidDeaths$
